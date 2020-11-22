@@ -2,7 +2,7 @@
 var pgConnect = require('./postgrePoolConnector');
 
 function insertFlashCard(kanji, hiragana, english, deck, sampleSentence, tag, cb) {
-    var queryString = `INSERT INTO flashcard_test values (${kanji}, ${hiragana}, ${english}, ${deck}, ${sampleSentence}, ${tag})`;
+    var queryString = `INSERT INTO flashcard_test values ('${kanji}', '${hiragana}', '${english}', '${deck}', '${sampleSentence}', '${tag}')`;
     pgConnect.executeQuery(queryString, (err, queryRes) => {
         console.log('finished querying.  queryString was ' + queryString);
         if (cb) cb(err, queryRes);
@@ -10,7 +10,7 @@ function insertFlashCard(kanji, hiragana, english, deck, sampleSentence, tag, cb
 }
 
 function newDeck(deckName, cb) {
-    var queryString = `INSERT INTO decks values (${deckName})`;
+    var queryString = `INSERT INTO decks values ('${deckName}')`;
     pgConnect.executeQuery(queryString, (err, queryRes) => {
         console.log('finished querying.  queryString was ' + queryString);
         if (cb) cb(err, queryRes);
