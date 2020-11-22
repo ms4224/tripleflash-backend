@@ -12,12 +12,12 @@ var router = require('express').Router();
 router.options('*', function(req, res, next){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
     next();
 })
 router.post('/decks', function(req, res){
         
-        res.setHeader('Access-Control-Allow-Origin', 'https://triple-flash-backend.herokuapp.com');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         console.log('updating decks route!');
@@ -32,7 +32,7 @@ router.post('/decks', function(req, res){
         })
 })
 router.post('/cards', function(req, res){
-        res.setHeader('Access-Control-Allow-Origin', 'https://triple-flash-backend.herokuapp.com');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         console.log('updating flashcard route!');
@@ -47,7 +47,7 @@ router.post('/cards', function(req, res){
         })
 })
 router.get('/cards/:deck', function(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://triple-flash-backend.herokuapp.com');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log('getting flashcards!');
@@ -62,7 +62,7 @@ router.get('/cards/:deck', function(req, res) {
     })
 })
 router.get('/decks', function(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://triple-flash-backend.herokuapp.com');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log('getting decks!');
