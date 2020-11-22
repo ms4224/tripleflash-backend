@@ -1,0 +1,27 @@
+https://www.postgresqltutorial.com/postgresql-cheat-sheet/
+COMMANDS:
+heroku login
+git push heroku master
+/dt - show all tables
+
+
+
+//test version
+create table decks (
+    deck varchar not null unique
+)
+
+insert into decks values ('testing');
+
+create table flashcard_test (
+    kanji varchar not null unique,
+    hiragana varchar not null,
+    english varchar not null,
+    deck varchar not null REFERENCES decks（deck),
+    sample_sentence varchar,
+    tag varchar
+)
+
+insert into flashcard_test values ('食べるxx', 'たべる', 'TO Eat', 'testing', 'hello i am a noob', 'sample tag')
+
+DROP TABLE flashcard_test;

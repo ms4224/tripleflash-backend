@@ -1,0 +1,62 @@
+**primary keys = not null unique
+**foreign key reference = REFERENCES table (column)
+**unique (column, column) makes a unique constraint on the combination
+
+
+*****Make sure that all _test tables that have a foreign key reference the _test user_credentials or referred table
+
+//list of tables
+//note every table has test_tableName version that is used for testing
+//for user-login: user_credentials, sessions
+
+//contains username, hash, salt, email
+create table user_credentials (
+username text not null unique,
+email text not null unique,
+hash text not null,
+salt text not null
+)
+//test version
+create table user_credentials_test (
+username text not null unique,
+email text not null unique,
+hash text not null,
+salt text not null
+)
+
+insert into user_credentials_test values ('coolfool24', 'yolosauce@gmail.com', 'crazyhash', 'crazy salt')
+
+//SESSIONS table
+create table sessions (
+sessionid text not null unique,
+username text not null unique REFERENCES user_credentials(username),
+ip text not null
+)
+
+//test version
+create table sessions_test (
+sessionid text not null unique,
+username text not null unique REFERENCES user_credentials_test(username),
+ip text not null
+)
+
+insert into sessions values ('asdfasdf', 'password', '1.2.4.24')
+
+//temporary user passwords table for recover passwords method. contains username, temppassword, temphash, tempsalt, routekey
+create table temporary_user_passwords (
+username text not null unique REFERENCES user_credentials(username),
+temp_password text not null,
+temp_hash text not null,
+temp_salt text not null,
+routekey text not null unique
+);
+//test version
+create table temporary_user_passwords_test (
+username text not null unique REFERENCES user_credentials_test(username),
+temp_password text not null,
+temp_hash text not null,
+temp_salt text not null,
+routekey text not null unique
+);
+
+insert into temporary_user_passwords values ('coolfool24', 'passwordtemp', 'crazytemphash', 'crazytempsalt', 'crazyroutekey');
