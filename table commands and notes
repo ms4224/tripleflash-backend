@@ -14,7 +14,7 @@ create table decks (
 insert into decks values ('testing');
 
 create table flashcard_test (
-    kanji varchar not null unique,
+    kanji varchar not null,
     hiragana varchar not null,
     english varchar not null,
     deck varchar not null REFERENCES decks（deck),
