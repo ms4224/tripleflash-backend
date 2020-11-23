@@ -44,7 +44,7 @@ app.use('/tripleflash', Cards)
 app.get('*', function (req, res) {
     // res.sendFile(path.join(__dirname, 'index.html'));
     // res.redirect('https://roy-o-gannon.herokuapp.com/')
-    res.send('hello.')
+    res.send('hello. Testing github auto deploy feature')
 });
 
 // app.get('/*', function (req, res) {
