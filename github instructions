@@ -1,0 +1,2 @@
+branch "main" is autodeployed with heroku. when making changes, commit and do
+git push origin main, and the changes will be autodeployed (it takes about 1 min).
