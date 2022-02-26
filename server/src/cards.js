@@ -19,10 +19,11 @@ function newDeck(deckName, cb) {
 
 function getDecks(cb) {
     var queryString = 'SELECT * FROM decks';
-    pgConnect.executeQuery(queryString, (err, queryRes) => {
-        console.log('finished querying.  queryString was ' + queryString);
-        if (cb) cb(err, queryRes);
-    })
+    cb(err, ['test'])
+    // pgConnect.executeQuery(queryString, (err, queryRes) => {
+    //     console.log('finished querying.  queryString was ' + queryString);
+    //     if (cb) cb(err, queryRes);
+    // })
 }
 
 function getCards(deckName, cb) {
