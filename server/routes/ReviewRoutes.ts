@@ -10,7 +10,7 @@ reviewRouter.options('*', function(req, res, next){
         res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
     next();
 })
-reviewRouter.post('review/cards', function(req, res){
+reviewRouter.post('/review/cards', function(req, res){
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -21,7 +21,7 @@ reviewRouter.post('review/cards', function(req, res){
             err => RouteTools.genericErrorResponse(res, err)
         )
 })
-reviewRouter.put('review/cards', function(req, res){
+reviewRouter.put('/review/cards', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -32,7 +32,7 @@ reviewRouter.put('review/cards', function(req, res){
         err => RouteTools.genericErrorResponse(res, err)
     )
 })
-reviewRouter.delete('review/delete-zero', function(req, res){
+reviewRouter.delete('/review/delete-zero', function(req, res){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -44,7 +44,7 @@ reviewRouter.delete('review/delete-zero', function(req, res){
     )
 })
 
-reviewRouter.get('review/cards', function(req: Express.Request, res) {
+reviewRouter.get('/review/cards', function(req: Express.Request, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
