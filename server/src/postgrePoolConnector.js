@@ -7,7 +7,7 @@ const connectionString = process?.env?.DATABASE_URL ? process.env.DATABASE_URL :
 const pool = new Pool({
   connectionString: connectionString,
   // connectionString: 'postgres://crohgweyigjjyu:2a90b5f07730f57e9c94b5c42f1ea13416f1df0cfd5d8a6a5421a0ade8b7d4b7@ec2-34-202-65-210.compute-1.amazonaws.com:5432/dck2jo8jo4g2ie',
-  ssl: true,
+  ssl: {rejectUnauthorized: false},
 })
 
 // the pool with emit an error on behalf of any idle clients
