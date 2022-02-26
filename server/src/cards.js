@@ -72,5 +72,9 @@ module.exports = {
     insertFlashCard: insertFlashCard,
     newDeck: newDeck,
     getDecks: getDecks,
-    getCards: getCards
+    getCards: getCards,
+    addToReview: addToReview,
+    updateReviewCardCount: updateReviewCardCount,
+    deleteReviewCardsWith0Count: deleteReviewCardsWith0Count,
+    getReviewCards: getReviewCards
 }
