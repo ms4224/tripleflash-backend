@@ -29,12 +29,14 @@ app.use(express.static(path.join(__dirname, 'public/dist')));
 // var EnemyData = require('./server/routes/EnemyDataRoute');
 // var UpdateScore = require('./server/routes/UpdateScoreRoute');
 // var Emote = require('./server/routes/EmoteRoute');
-var Cards = require('./server/routes/CardsRoutes')
+var Cards = require('./server/routes/CardsRoutes');
+var Review = require('./server/routes/ReviewRoutes')
 
 // app.use('/updatescore', UpdateScore);
 // app.use('/enemydata', EnemyData);
 // app.use('/emote', Emote);
-app.use('/tripleflash', Cards)
+app.use('/tripleflash', Cards);
+app.use('/tripleflash', Review);
 
 
 // app.get('/info', function (req, res){

@@ -4,16 +4,22 @@ heroku login
 git push heroku master
 /dt - show all tables
 
+heroku pg:psql guide
+https://devcenter.heroku.com/articles/heroku-postgresql#using-the-cli
+
+get database connection string:
+https://stackoverflow.com/questions/5951105/heroku-database-url
+
 
 
 //test version
 create table decks (
     deck varchar not null unique
-)
+);
 
 insert into decks values ('testing');
 
-create table flashcard_test (
+create table test (
     kanji varchar not null,
     hiragana varchar not null,
     english varchar not null,
@@ -25,3 +31,17 @@ create table flashcard_test (
 insert into flashcard_test values ('食べるxx', 'たべる', 'TO Eat', 'testing', 'hello i am a noob', 'sample tag')
 
 DROP TABLE flashcard_test;
+
+create table review_cards (
+    kanji varchar not null,
+    hiragana varchar not null,
+    english varchar not null,
+    deck varchar not null REFERENCES decks（deck),
+    sample_sentence varchar,
+    tag varchar,
+    remaining int
+)
+
+insert into review_cards values ('食べるxx', 'たべる', 'TO Eat', 'testing', 'hello i am a noob', 'sample tag', 0);
+delete from review_cards where remaining = 0;
+update review_cards set remaining = 5 where kanji = '食べるxx' AND hiragana = 'たべる' AND english = 'TO Eat' AND deck = 'testing';
