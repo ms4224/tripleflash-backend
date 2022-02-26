@@ -18,7 +18,7 @@ cardRouter.options('*', function(req, res, next){
         res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
     next();
 })
-cardRouter.post('/decks', function(req, res){
+cardRouter.post('decks', function(req, res){
         
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -34,7 +34,7 @@ cardRouter.post('/decks', function(req, res){
             }
         )
 })
-cardRouter.post('/cards', function(req, res){
+cardRouter.post('cards', function(req, res){
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -49,7 +49,7 @@ cardRouter.post('/cards', function(req, res){
             }
         )
 })
-cardRouter.get('/cards/:deck', function(req, res) {
+cardRouter.get('cards/:deck', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -60,7 +60,7 @@ cardRouter.get('/cards/:deck', function(req, res) {
         err => RouteTools.genericErrorResponse(res, err)
     )
 })
-cardRouter.get('/decks', function(req, res) {
+cardRouter.get('decks', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');

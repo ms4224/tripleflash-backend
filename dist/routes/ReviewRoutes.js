@@ -17,7 +17,7 @@ exports.reviewRouter.options('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
     next();
 });
-exports.reviewRouter.post('/review/cards', function (req, res) {
+exports.reviewRouter.post('review/cards', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -25,7 +25,7 @@ exports.reviewRouter.post('/review/cards', function (req, res) {
     console.log('req----------------------------------------------', req.body);
     cardFncs.addToReview(req.body.kanji, req.body.hiragana, req.body.english, req.body.deck, req.body.sampleSentence, req.body.tag, req.body.remaining).then(result => RouteTools_1.RouteTools.genericSuccessResponse(res, result), err => RouteTools_1.RouteTools.genericErrorResponse(res, err));
 });
-exports.reviewRouter.put('/review/cards', function (req, res) {
+exports.reviewRouter.put('review/cards', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -33,7 +33,7 @@ exports.reviewRouter.put('/review/cards', function (req, res) {
     console.log('req----------------------------------------------', req.body);
     cardFncs.updateReviewCardCount(req.body.kanji, req.body.hiragana, req.body.english, req.body.deck, req.body.remaining).then(result => RouteTools_1.RouteTools.genericSuccessResponse(res, result), err => RouteTools_1.RouteTools.genericErrorResponse(res, err));
 });
-exports.reviewRouter.delete('/review/delete-zero', function (req, res) {
+exports.reviewRouter.delete('review/delete-zero', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -41,7 +41,7 @@ exports.reviewRouter.delete('/review/delete-zero', function (req, res) {
     console.log('req----------------------------------------------', req.body);
     cardFncs.deleteReviewCardsWith0Count().then(result => RouteTools_1.RouteTools.genericSuccessResponse(res, result), err => RouteTools_1.RouteTools.genericErrorResponse(res, err));
 });
-exports.reviewRouter.get('/review/cards', function (req, res) {
+exports.reviewRouter.get('review/cards', function (req, res) {
     var _a, _b;
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
