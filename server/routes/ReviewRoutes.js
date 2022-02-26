@@ -61,7 +61,7 @@ router.get('/review/cards', function(req, res) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log('getting flashcards!');
     console.log('requested deck',req.params.deck);
-    cardFncs.getReviewCards(req.params.deck, (err, queryResult) => {
+    cardFncs.getReviewCards((err, queryResult) => {
         console.log('done retrieving REVIEW cards.')
         res.status(200);
         if (err) {

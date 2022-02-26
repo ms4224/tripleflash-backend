@@ -4,7 +4,7 @@ const { Pool } = require('pg')
 
 const pool = new Pool({
 	  connectionString: process.env.DATABASE_URL,
-    // connectionString: 'postgres://bynffpcqbmbxkg:272bc051ab6dd56815c15e20582696e07a691452a4cd3419076bb64482ff83a5@ec2-54-221-207-184.compute-1.amazonaws.com:5432/d6r9nosnh4e6kj',
+    // connectionString: 'postgres://crohgweyigjjyu:2a90b5f07730f57e9c94b5c42f1ea13416f1df0cfd5d8a6a5421a0ade8b7d4b7@ec2-34-202-65-210.compute-1.amazonaws.com:5432/dck2jo8jo4g2ie',
     ssl: true,
 	})
 
@@ -17,6 +17,7 @@ pool.on('error', (err, client) => {
 
 // callback - checkout a client
 function executeQuery(queryString, cb){
+  console.log('debug, here is conn string', pool.connectionString)
 	pool.connect((err, client, done) => {
   if (err) console.log(err);
   console.log(queryString);
