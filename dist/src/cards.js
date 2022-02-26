@@ -27,7 +27,7 @@ function addToReview(kanji, hiragana, english, deck, sampleSentence, tag, remain
 }
 exports.addToReview = addToReview;
 function updateReviewCardCount(kanji, hiragana, english, deck, newRemainingCount) {
-    var queryString = `update review_cards set remaining = ${newRemainingCount} where kanji = ${kanji} AND hiragana = ${hiragana} AND english = ${english} AND deck = ${deck};`;
+    var queryString = `update review_cards set remaining = ${newRemainingCount} where kanji = '${kanji}' AND hiragana = '${hiragana}' AND english = '${english}' AND deck = '${deck}';`;
     return executeQuery(queryString).then(res => {
         return deleteReviewCardsWith0Count();
     });
