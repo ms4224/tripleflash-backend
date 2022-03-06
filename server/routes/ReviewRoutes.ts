@@ -7,7 +7,7 @@ export const reviewRouter = Router();
 reviewRouter.options('*', function(req, res, next){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Access-Control-Allow-Origin, access-control-allow-origin, *');
     next();
 })
 reviewRouter.post('/review/cards', function(req, res){
