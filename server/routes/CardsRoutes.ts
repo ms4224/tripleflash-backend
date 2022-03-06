@@ -15,7 +15,7 @@ export const cardRouter = Router();
 cardRouter.options('*', function(req, res, next){
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Access-Control-Allow-Origin, access-control-allow-origin, *');
     next();
 })
 cardRouter.post('/decks', function(req, res){
