@@ -49,38 +49,41 @@ cardRouter.post('/cards', function(req, res){
             }
         )
 })
-cardRouter.get('/cards', function(req, res) {
+// cardRouter.get('/cards', function(req, res) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     console.log('getting flashcards!');
+// })
+cardRouter.get('/cards/:deck/:kanji', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    console.log('getting flashcards!');
-    cardFncs.getAllCards().then(
-        result => RouteTools.genericSuccessResponse(res, result),
-        err => RouteTools.genericErrorResponse(res, err)
-    )
+    if (req.params.deck && req.params.deck !== 'NONE') {
+        console.log('requested deck',req.params.deck);
+        cardFncs.getCards(req.params.deck).then(
+            result => RouteTools.genericSuccessResponse(res, result),
+            err => RouteTools.genericErrorResponse(res, err)
+        )
+    } else if (req.params.kanji && req.params.kanji !== 'NONE') {
+        console.log('requested kanji',req.params.kanji);
+        cardFncs.getCardsWithMatchingKanji(req.params.kanji).then(
+            result => RouteTools.genericSuccessResponse(res, result),
+            err => RouteTools.genericErrorResponse(res, err)
+        )
+    } else {
+        cardFncs.getAllCards().then(
+            result => RouteTools.genericSuccessResponse(res, result),
+            err => RouteTools.genericErrorResponse(res, err)
+        )
+    }
 })
-cardRouter.get('/cards/:deck', function(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    console.log('getting flashcards!');
-    console.log('requested deck',req.params.deck);
-    cardFncs.getCards(req.params.deck).then(
-        result => RouteTools.genericSuccessResponse(res, result),
-        err => RouteTools.genericErrorResponse(res, err)
-    )
-})
-cardRouter.get('/cards/:kanji', function(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    console.log('getting flashcards!');
-    console.log('requested kanji',req.params.kanji);
-    cardFncs.getCardsWithMatchingKanji(req.params.kanji).then(
-        result => RouteTools.genericSuccessResponse(res, result),
-        err => RouteTools.genericErrorResponse(res, err)
-    )
-})
+// cardRouter.get('/cards/:kanji', function(req, res) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     console.log('getting flashcards!');
+// })
 cardRouter.get('/decks', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
