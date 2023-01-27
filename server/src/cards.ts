@@ -1,5 +1,5 @@
 
-import {runQuery} from '../src/postgrePoolConnectorV2'; //adding a comment to push to heroku
+import {runQuery} from '../src/postgrePoolConnectorV2';
 
 export function insertFlashCard(kanji: string, hiragana: string, english: string, deck: string, sampleSentence: string, tag: string) {
     var queryString = `INSERT INTO flashcard_test values ('${kanji}', '${hiragana}', '${english}', '${deck}', '${sampleSentence}', '${tag}')`;
