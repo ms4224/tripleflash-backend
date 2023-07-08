@@ -40,7 +40,7 @@ exports.cardRouter.post('/decks', function (req, res) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log('updating decks route!');
     console.log('req----------------------------------------------', req.body);
-    cardFncs.newDeck(req.body.dec).then((result) => {
+    cardFncs.newDeck(req.body.deck).then((result) => {
         RouteTools_1.RouteTools.genericSuccessResponse(res);
     }, err => {
         RouteTools_1.RouteTools.genericErrorResponse(res, err);
