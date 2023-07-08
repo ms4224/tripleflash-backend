@@ -25,7 +25,7 @@ cardRouter.post('/decks', function(req, res){
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         console.log('updating decks route!');
         console.log('req----------------------------------------------',req.body);
-        cardFncs.newDeck(req.body.dec).then(
+        cardFncs.newDeck(req.body.deck).then(
             (result) => {
                 RouteTools.genericSuccessResponse(res)
             },

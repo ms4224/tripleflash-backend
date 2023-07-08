@@ -19,16 +19,16 @@ create table decks (
 
 insert into decks values ('testing');
 
-create table test (
+create table flashcard_test (
     kanji varchar not null,
     hiragana varchar not null,
     english varchar not null,
     deck varchar not null REFERENCES decks（deck),
     sample_sentence varchar,
     tag varchar
-)
+);
 
-insert into flashcard_test values ('食べるxx', 'たべる', 'TO Eat', 'testing', 'hello i am a noob', 'sample tag')
+insert into flashcard_test values ('食べるxx', 'たべる', 'TO Eat', 'testing', 'hello i am a noob', 'sample tag');
 
 DROP TABLE flashcard_test;
 

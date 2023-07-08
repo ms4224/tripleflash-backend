@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { cardRouter } from './routes/CardsRoutes';
 import { reviewRouter } from './routes/ReviewRoutes';
 // const corsOptions = {
@@ -11,7 +12,7 @@ import { reviewRouter } from './routes/ReviewRoutes';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.use()
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, 'static')));
