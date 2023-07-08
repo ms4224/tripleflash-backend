@@ -4,10 +4,10 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import { cardRouter } from './routes/CardsRoutes';
 import { reviewRouter } from './routes/ReviewRoutes';
-const corsOptions = {
-  origin: 'https://ms4224.github.io',
-  optionsSuccessStatus: 200
-}
+// const corsOptions = {
+//   origin: 'https://ms4224.github.io',
+//   optionsSuccessStatus: 200
+// }
 
 
 const PORT = process.env.PORT || 3000;
