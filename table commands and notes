@@ -2,7 +2,7 @@ https://www.postgresqltutorial.com/postgresql-cheat-sheet/
 COMMANDS:
 heroku login
 git push heroku master
-/dt - show all tables
+\dt - show all tables
 
 heroku pg:psql guide
 https://devcenter.heroku.com/articles/heroku-postgresql#using-the-cli

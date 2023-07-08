@@ -21,6 +21,16 @@ function getCards(deckName) {
     return executeQuery(queryString);
 }
 exports.getCards = getCards;
+function getAllCards() {
+    var queryString = `SELECT * FROM flashcard_test`;
+    return executeQuery(queryString);
+}
+exports.getAllCards = getAllCards;
+function getCardsWithMatchingKanji(kanji) {
+    var queryString = `SELECT * FROM flashcard_test WHERE kanji = '${kanji}'`;
+    return executeQuery(queryString);
+}
+exports.getCardsWithMatchingKanji = getCardsWithMatchingKanji;
 function addToReview(kanji, hiragana, english, deck, sampleSentence, tag, remainingCount) {
     var queryString = `INSERT INTO review_cards values ('${kanji}', '${hiragana}', '${english}', '${deck}', '${sampleSentence}', '${tag}', ${remainingCount})`;
     return executeQuery(queryString);

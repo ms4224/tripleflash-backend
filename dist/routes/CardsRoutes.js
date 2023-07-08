@@ -18,7 +18,7 @@ exports.cardRouter = express_1.Router();
 exports.cardRouter.options('*', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Access-Control-Allow-Origin, access-control-allow-origin, *');
     next();
 });
 exports.cardRouter.post('/decks', function (req, res) {
@@ -45,13 +45,23 @@ exports.cardRouter.post('/cards', function (req, res) {
         RouteTools_1.RouteTools.genericErrorResponse(res, err);
     });
 });
-exports.cardRouter.get('/cards/:deck', function (req, res) {
+exports.cardRouter.get('/cards', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log('getting flashcards!');
+    cardFncs.getAllCards().then(result => RouteTools_1.RouteTools.genericSuccessResponse(res, result), err => RouteTools_1.RouteTools.genericErrorResponse(res, err));
+});
+exports.cardRouter.get('/cards/deck/:deck', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log('requested deck', req.params.deck);
     cardFncs.getCards(req.params.deck).then(result => RouteTools_1.RouteTools.genericSuccessResponse(res, result), err => RouteTools_1.RouteTools.genericErrorResponse(res, err));
+});
+exports.cardRouter.get('/cards/kanji/:kanji', function (req, res) {
+    console.log('requested kanji', req.params.kanji);
+    cardFncs.getCardsWithMatchingKanji(req.params.kanji).then(result => RouteTools_1.RouteTools.genericSuccessResponse(res, result), err => RouteTools_1.RouteTools.genericErrorResponse(res, err));
 });
 exports.cardRouter.get('/decks', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
