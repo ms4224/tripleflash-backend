@@ -1,11 +1,18 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { cardRouter } from './routes/CardsRoutes';
 import { reviewRouter } from './routes/ReviewRoutes';
+var corsOptions = {
+  origin: 'https://ms4224.github.io',
+  optionsSuccessStatus: 200
+}
+
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+app.use(cors(corsOptions))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, 'static')));

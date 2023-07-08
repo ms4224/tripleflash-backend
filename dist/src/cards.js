@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.executeQuery = exports.getReviewCards = exports.deleteReviewCardsWith0Count = exports.updateReviewCardCount = exports.addToReview = exports.getCardsWithMatchingKanji = exports.getAllCards = exports.getCards = exports.getDecks = exports.newDeck = exports.insertFlashCard = void 0;
 const postgrePoolConnectorV2_1 = require("../src/postgrePoolConnectorV2");
 function insertFlashCard(kanji, hiragana, english, deck, sampleSentence, tag) {
     var queryString = `INSERT INTO flashcard_test values ('${kanji}', '${hiragana}', '${english}', '${deck}', '${sampleSentence}', '${tag}')`;
@@ -54,7 +55,7 @@ function getReviewCards() {
 }
 exports.getReviewCards = getReviewCards;
 function executeQuery(query) {
-    return postgrePoolConnectorV2_1.runQuery(query).then((res) => {
+    return (0, postgrePoolConnectorV2_1.runQuery)(query).then((res) => {
         console.log('finished querying.  queryString was ' + query);
         return res;
     });

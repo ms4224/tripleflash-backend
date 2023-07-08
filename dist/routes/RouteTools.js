@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RouteTools = void 0;
 class RouteTools {
     static genericSuccessResponse(res, payload) {
         res.setHeader('Access-Control-Allow-Origin', '*');
